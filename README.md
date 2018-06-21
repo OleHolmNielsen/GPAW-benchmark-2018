@@ -3,7 +3,7 @@
 GPAW code building instructions and benchmark data
 --------------------------------------------------
 
-The purpose of this project is to document the building of the
+The purpose of this page is to document the building of the
 [GPAW](https://wiki.fysik.dtu.dk/gpaw/) code version 1.4.
 Subsequently a GPAW test and a GPAW benchmark run is documented.
 
@@ -26,6 +26,10 @@ EasyBuild software module toolchains:
 1. foss-2018a: BLACS, FFTW, GCC, OpenBLAS, OpenMPI, ScaLAPACK
 
 2. iomkl-2018a: OpenMPI, icc, ifort, imkl
+
+The foss toolchain uses only Open Source software,
+whereas the iomkl toolchain requires licensed Intel C and Fortran compilers 
+as well as the Intel MKL library.
 
 Step 1: Installing Lmod
 -----------------------
@@ -135,13 +139,14 @@ We do not require the use of Intel MPI.
 
 Usage of Intel compiler licenses may find useful hints in the web page
 https://wiki.fysik.dtu.dk/niflheim/EasyBuild_modules#intel-compiler-toolchains
+
 To use your Intel <license-server> host port 28518:
 
 ```
 export INTEL_LICENSE_FILE=28518@<license-server>
 ```
 
-To build the iomkl-2018a toolchain first install the compiler tar-ball files
+To build the iomkl-2018a toolchain first download the compiler tar-ball files
 as described in 
 https://wiki.fysik.dtu.dk/niflheim/EasyBuild_modules#intel-compiler-toolchains
 
