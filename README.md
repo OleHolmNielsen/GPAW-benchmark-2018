@@ -1,5 +1,7 @@
 # GPAW-benchmark-2018
+
 GPAW code building instructions and benchmark data
+--------------------------------------------------
 
 The purpose of this project is to document the building of the
 [GPAW](https://wiki.fysik.dtu.dk/gpaw/) code version 1.4.
@@ -25,25 +27,27 @@ guide with detailed instructions.
 
 A software modules tool is a prerequisite, and the recommended tool is
 [Lmod](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod).
-Brief [Lmod installation instructions for CentOS 7 may be found in
+Brief Lmod installation instructions for CentOS 7 may be found in
 https://wiki.fysik.dtu.dk/niflheim/EasyBuild_modules#install-lmod
 summarized as:
 
 ```
 yum install epel-release
 yum install Lmod
-export EASYBUILD_MODULES_TOOL=Lmod
 ```
 
 A non-root user can install Lmod as documented in http://easybuild.readthedocs.io/en/latest/Installing-Lmod-without-root-permissions.html
 
 Now EasyBuild should be installed as a normal user.
+Brief EasyBuild installation instructions for CentOS 7 may be found in
+https://wiki.fysik.dtu.dk/niflheim/EasyBuild_modules
 
-Define the top-level directory for your modules, for example:
+Define the top-level directory and modules tool for your modules, for example:
 
 ```
 mkdir $HOME/modules
 export EASYBUILD_PREFIX=$HOME/modules
+export EASYBUILD_MODULES_TOOL=Lmod
 ```
 
 Download and install EasyBuild:
