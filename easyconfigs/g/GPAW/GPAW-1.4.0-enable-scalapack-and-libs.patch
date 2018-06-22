@@ -1,0 +1,90 @@
+--- gpaw-1.4.0/customize.py	2018-06-05 10:38:03.966341228 +0200
++++ customize.py	2018-06-05 10:40:10.053682356 +0200
+@@ -27,42 +27,75 @@
+ 
+     libraries += ['somelib', 'otherlib']
+ """
++import os
+ 
+ # compiler = 'gcc'
+ # mpicompiler = 'mpicc'  # use None if you don't want to build a gpaw-python
+ # mpilinker = 'mpicc'
+ # platform_id = ''
+-scalapack = False
++# scalapack = False
++scalapack = True
++
++# EasyBuild customization: Get the paths of the various
++# libraries from the EBROOT environment variables set when
++# the EasyBuild modules containing the libraries are loaded.
++
++library_dirs = []  # Overrule the automatic stuff
++libraries = []
++path = os.environ.get('EBROOTPYTHON')
++extra_link_args += ['-Wl,-rpath=%s/lib' % path]
++
++path = os.environ.get('EBROOTLIBREADLINE')
++extra_link_args += ['-Wl,-rpath=%s/lib' % path]
++include_dirs += [os.path.join(path, 'include')]
++library_dirs += [os.path.join(path, 'lib')]
++libraries += ['readline']
++
++# Use BLAS and LAPACK libraries from EasyBuild
++path = os.getenv('EBROOTOPENBLAS')
++extra_link_args += ['-Wl,-rpath=%s/lib' % path]
++library_dirs += [os.path.join(path, 'lib')]
++# if 'blas' in libraries:
++#     libraries.remove('blas')
++# if 'lapack' in libraries:
++#     libraries.remove('lapack')
++libraries += ['openblas', 'gfortran']
++include_dirs += [os.path.join(path, 'include')]
++
+ 
+ # Use ScaLAPACK:
+ # Warning! At least scalapack 2.0.1 is required!
+ # See https://trac.fysik.dtu.dk/projects/gpaw/ticket/230
+ if scalapack:
+-    libraries += ['scalapack-openmpi',
+-                  'blacsCinit-openmpi',
+-                  'blacs-openmpi']
++    path = os.getenv('EBROOTSCALAPACK')
++    extra_link_args += ['-Wl,-rpath=%s' % path]
++    mpi_library_dirs += [os.path.join(path, 'lib')]
++    mpi_libraries += ['scalapack']
++    include_dirs += [os.path.join(path, 'include')]
+     define_macros += [('GPAW_NO_UNDERSCORE_CBLACS', '1')]
+     define_macros += [('GPAW_NO_UNDERSCORE_CSCALAPACK', '1')]
+ 
++
+ # LibXC:
+ # In order to link libxc installed in a non-standard location
+ # (e.g.: configure --prefix=/home/user/libxc-2.0.1-1), use:
+ 
+ # - static linking:
+ if 0:
+-    xc = '/home/user/libxc-4.0.4/'
+-    include_dirs += [xc + 'include']
+-    extra_link_args += [xc + 'lib/libxc.a']
++    include_dirs += ['/home/user/libxc-2.0.1-1/include']
++    extra_link_args += ['/home/user/libxc-2.0.1-1/lib/libxc.a']
+     if 'xc' in libraries:
+         libraries.remove('xc')
+ 
++
+ # - dynamic linking (requires rpath or setting LD_LIBRARY_PATH at runtime):
+-if 0:
+-    xc = '/home/user/libxc-4.0.4/'
+-    include_dirs += [xc + 'include']
+-    library_dirs += [xc + 'lib']
++if 1:
++    path = os.environ['EBROOTLIBXC']
++    extra_link_args += ['-Wl,-rpath=%s/lib' % path]
++    include_dirs += [os.path.join(path, 'include')]
++    library_dirs += [os.path.join(path, 'lib')]
+     # You can use rpath to avoid changing LD_LIBRARY_PATH:
+-    extra_link_args += ['-Wl,-rpath={xc}/lib'.format(xc=xc)]
++    # extra_link_args += ['-Wl,-rpath=/home/user/libxc-2.0.1-1/lib']
+     if 'xc' not in libraries:
+         libraries.append('xc')
+ 
