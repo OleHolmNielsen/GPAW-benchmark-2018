@@ -38,8 +38,8 @@ A software modules tool is a prerequisite, and the recommended tool is
 [Lmod](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod).
 
 Brief Lmod installation instructions for CentOS 7 may be found in
-https://wiki.fysik.dtu.dk/niflheim/EasyBuild_modules#install-lmod
-summarized as:
+https://wiki.fysik.dtu.dk/niflheim/EasyBuild_modules#install-lmod.
+The root superuser may install the Lmod RPM by:
 
 ```
 yum install epel-release
@@ -51,12 +51,12 @@ A non-root user can install Lmod as documented in http://easybuild.readthedocs.i
 Step 2: Installing EasyBuild
 ----------------------------
 
-EasyBuild should be installed as a normal user.
+EasyBuild must be installed as a normal user.
 
 Brief EasyBuild installation instructions for CentOS 7 may be found in
-https://wiki.fysik.dtu.dk/niflheim/EasyBuild_modules
-
-There is an [EasyBuild installation](https://easybuild.readthedocs.io/en/latest/Installation.html) 
+https://wiki.fysik.dtu.dk/niflheim/EasyBuild_modules.
+There is an official
+[EasyBuild installation](https://easybuild.readthedocs.io/en/latest/Installation.html) 
 guide with detailed instructions.
 
 Define the top-level directory and modules tool for your modules, for example:
@@ -75,7 +75,8 @@ curl -O https://raw.githubusercontent.com/hpcugent/easybuild-framework/develop/e
 python bootstrap_eb.py $EASYBUILD_PREFIX
 ```
 
-Update $MODULEPATH, load the EasyBuild module, and check the basic functionality:
+Update the $MODULEPATH by module use, 
+then load the EasyBuild module and check the basic EasyBuild functionality:
 
 ```
 module use $EASYBUILD_PREFIX/modules/all
@@ -101,7 +102,7 @@ To build the foss-2018a toolchain run this command:
 eb foss-2018a.eb -r
 ```
 
-The building of GCC, OpenMPI and FFTW will particularly time consuming,
+The building of GCC, OpenMPI and FFTW will be particularly time consuming,
 and this task may take several hours!
 
 Now the foss toolchain modules can be loaded:
@@ -139,13 +140,15 @@ The Intel compilers icc and ifort, and the MKL library, are products
 offered by Intel.
 We do not require the use of Intel MPI.
 
-Usage of Intel compiler licenses may find useful hints in the web page
+There are useful hints about Intel compiler installation and licenses in the web page
 https://wiki.fysik.dtu.dk/niflheim/EasyBuild_modules#intel-compiler-toolchains
 
-To use your Intel <license-server> host port 28518:
+Specify your Intel <license-server> host port 28518 (for example) or just the 
+license file path:
 
 ```
 export INTEL_LICENSE_FILE=28518@<license-server>
+export INTEL_LICENSE_FILE=<file-path>
 ```
 
 To build the iomkl-2018a toolchain first download the compiler tar-ball files
