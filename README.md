@@ -196,9 +196,10 @@ eb iomkl-2018a.eb -r
 If Mellanox libraries are installed on the system, building of OpenMPI may fail.
 The workround is to disable UCX in the OpenMPI configuration,
 see details in https://github.com/easybuilders/easybuild-easyconfigs/pull/5949.
-Then build OpenMPI with:
+Then build OpenMPI and iomkl with:
 ```
 eb --from-pr 5949 OpenMPI-2.1.2-iccifort-2018.1.163-GCC-6.4.0-2.28.eb
+eb iomkl-2018a.eb -r
 ```
 
 Now the iomkl toolchain modules can be loaded:
