@@ -51,7 +51,8 @@ A non-root user can install Lmod as documented in http://easybuild.readthedocs.i
 Step 2: Installing EasyBuild
 ----------------------------
 
-Now EasyBuild should be installed as a normal user.
+EasyBuild should be installed as a normal user.
+
 Brief EasyBuild installation instructions for CentOS 7 may be found in
 https://wiki.fysik.dtu.dk/niflheim/EasyBuild_modules
 
@@ -65,6 +66,7 @@ mkdir $HOME/modules
 export EASYBUILD_PREFIX=$HOME/modules
 export EASYBUILD_MODULES_TOOL=Lmod
 ```
+where $HOME is the normal user's home directory.
 
 Download and install EasyBuild:
 
@@ -149,11 +151,37 @@ export INTEL_LICENSE_FILE=28518@<license-server>
 To build the iomkl-2018a toolchain first download the compiler tar-ball files
 as described in 
 https://wiki.fysik.dtu.dk/niflheim/EasyBuild_modules#intel-compiler-toolchains
+and move these files to the EasyBuild source directories.
 
-Then run this command:
+```
+mkdir -p $HOME/modules/sources/i/icc $HOME/modules/sources/i/ifort $HOME/modules/sources/i/imkl
+mv parallel_studio_xe_2018_update1_composer_edition_for_cpp.tgz $HOME/modules/sources/i/icc/
+mv parallel_studio_xe_2018_update1_composer_edition_for_fortran.tgz $HOME/modules/sources/i/ifort/
+mv l_mkl_2018.1.163.tgz $HOME/modules/sources/i/imkl/
+```
+
+Due to a bug in the Intel compilers 2018.1 you need to set a very large or unlimited
+stack size before building Python 3.x with Intel compilers, for example:
+
+```
+ulimit -s 40000000
+ulimit -s unlimited
+```
+See details in https://software.intel.com/en-us/forums/intel-c-compiler/topic/759078.
+The bug seems to have been resolved in the Intel 2018.3 compiler version.
+
+Then run this command to build the iomkl toolchain:
 
 ```
 eb iomkl-2018a.eb -r
+```
+
+If Mellanox libraries are installed on the system, building of OpenMPI may fail.
+The workround is to disable UCX in the OpenMPI configuration,
+see details in https://github.com/easybuilders/easybuild-easyconfigs/pull/5949.
+Then build OpenMPI with:
+```
+eb --from-pr 5949 OpenMPI-2.1.2-iccifort-2018.1.163-GCC-6.4.0-2.28.eb
 ```
 
 Now the iomkl toolchain modules can be loaded:
