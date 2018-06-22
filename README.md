@@ -206,3 +206,15 @@ Currently Loaded Modules:
  10) imkl/2018.1.163-iompi-2018a
  11) iomkl/2018a
 ```
+
+Build GPAW using the foss-2018a toolchain
+-----------------------------------------
+
+The GPAW 1.4 package is not yet part of the EasyBuild official releases.
+A subdirectory ```easyconfigs``` contains the EasyBuild files required to 
+build GPAW 1.4.
+
+Build the GPAW, GPAW-setups and ASE software modules by:
+```
+eb GPAW-1.4.0-foss-2018a-Python-3.6.4.eb -r easyconfigs
+```
