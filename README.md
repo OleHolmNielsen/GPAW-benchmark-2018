@@ -53,6 +53,20 @@ Step 2: Installing EasyBuild
 
 EasyBuild must be installed as a normal user.
 
+NOTICE: EasyBuild by default builds binary application codes which are optimized 
+for the host/node CPU architecture.  Therefore all software must be built on the 
+same type of CPU architecture that the software will eventually run on.
+If you build software on an older CPU architecture, the code will only use CPU instructions
+available on the old CPU architecture, and hence potentially be mush slower 
+than it should be!
+
+The CPU architecture may be printed using the command:
+```
+gcc -march=native -Q --help=target | grep march
+```
+This information is only available with the GCC compiler version 4.9 and newer.
+Also the ```lscpu``` will reveal information about the type of CPU.
+
 Brief EasyBuild installation instructions for CentOS 7 may be found in
 https://wiki.fysik.dtu.dk/niflheim/EasyBuild_modules.
 There is an official
