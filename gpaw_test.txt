@@ -1,0 +1,435 @@
+===========================================================================
+This is output from job: 623075
+I am here: x096:/home/niflheim/ohni/Git/GPAW-benchmark-2018
+CentOS Linux release 7.4.1708 (Core) 
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                24
+On-line CPU(s) list:   0-23
+Thread(s) per core:    1
+Core(s) per socket:    12
+Socket(s):             2
+NUMA node(s):          2
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 79
+Model name:            Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
+Stepping:              1
+CPU MHz:               1597.148
+CPU max MHz:           2900.0000
+CPU min MHz:           1200.0000
+BogoMIPS:              4389.53
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              30720K
+NUMA node0 CPU(s):     0-11
+NUMA node1 CPU(s):     12-23
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch epb cat_l3 cdp_l3 intel_pt tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm rdt_a rdseed adx smap xsaveopt cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+Mon Jun 25 10:48:56 CEST 2018
+===========================================================================
+
+Currently Loaded Modules:
+  1) GCCcore/6.4.0
+  2) binutils/2.28-GCCcore-6.4.0
+  3) GCC/6.4.0-2.28
+  4) numactl/2.0.11-GCCcore-6.4.0
+  5) hwloc/1.11.8-GCCcore-6.4.0
+  6) OpenMPI/2.1.2-GCC-6.4.0-2.28
+  7) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  8) gompi/2018a
+  9) FFTW/3.3.7-gompi-2018a
+ 10) ScaLAPACK/2.0.2-gompi-2018a-OpenBLAS-0.2.20
+ 11) foss/2018a
+ 12) bzip2/1.0.6-GCCcore-6.4.0
+ 13) zlib/1.2.11-GCCcore-6.4.0
+ 14) ncurses/6.0-GCCcore-6.4.0
+ 15) libreadline/7.0-GCCcore-6.4.0
+ 16) Tcl/8.6.8-GCCcore-6.4.0
+ 17) SQLite/3.21.0-GCCcore-6.4.0
+ 18) XZ/5.2.3-GCCcore-6.4.0
+ 19) GMP/6.1.2-GCCcore-6.4.0
+ 20) libffi/3.2.1-GCCcore-6.4.0
+ 21) Python/3.6.4-foss-2018a
+ 22) libpng/1.6.34-GCCcore-6.4.0
+ 23) freetype/2.9-GCCcore-6.4.0
+ 24) expat/2.2.5-GCCcore-6.4.0
+ 25) fontconfig/2.12.6-GCCcore-6.4.0
+ 26) X11/20180131-GCCcore-6.4.0
+ 27) Tk/8.6.8-foss-2018a
+ 28) Tkinter/3.6.4-foss-2018a-Python-3.6.4
+ 29) matplotlib/2.1.2-foss-2018a-Python-3.6.4
+ 30) ASE/3.16.2-foss-2018a-Python-3.6.4
+ 31) libxc/3.0.1-foss-2018a
+ 32) GPAW-setups/0.9.20000
+ 33) GPAW/1.4.0-foss-2018a-Python-3.6.4
+
+Execute GPAW test
+--------------------------------------------------------------------------
+A process has executed an operation involving a call to the
+"fork()" system call to create a child process.  Open MPI is currently
+operating in a condition that could result in memory corruption or
+other system errors; your job may hang, crash, or produce silent
+data corruption.  The use of fork() (or system() or other calls that
+create child processes) is strongly discouraged.
+
+The process that invoked fork was:
+
+  Local host:          [[56565,1],0] (PID 21775)
+
+If you are *absolutely sure* that your application will successfully
+and correctly survive a call to fork(), you may disable this warning
+by setting the mpi_warn_on_fork MCA parameter to 0.
+--------------------------------------------------------------------------
+python-3.6.4             /home/modules/software/GPAW/1.4.0-foss-2018a-Python-3.6.4/bin/gpaw-python
+gpaw-1.4.0               /home/modules/software/GPAW/1.4.0-foss-2018a-Python-3.6.4/lib/python3.6/site-packages/gpaw/
+ase-3.16.2               /home/modules/software/ASE/3.16.2-foss-2018a-Python-3.6.4/lib/python3.6/site-packages/ase-3.16.2-py3.6.egg/ase/
+numpy-1.14.0             /home/modules/software/Python/3.6.4-foss-2018a/lib/python3.6/site-packages/numpy-1.14.0-py3.6-linux-x86_64.egg/numpy/
+scipy-1.0.0              /home/modules/software/Python/3.6.4-foss-2018a/lib/python3.6/site-packages/scipy-1.0.0-py3.6-linux-x86_64.egg/scipy/
+_gpaw                    built-in
+parallel                 /home/modules/software/GPAW/1.4.0-foss-2018a-Python-3.6.4/bin/gpaw-python
+FFTW                     yes
+scalapack                yes
+libvdwxc                 no
+PAW-datasets             1: /home/modules/software/GPAW-setups/0.9.20000
+Running tests in /tmp/gpaw-test-8dd6sbl_
+Jobs: 1, Cores: 8, debug-mode: False
+=============================================================================
+linalg/gemm_complex.py                        0.035  OK
+ase_features/ase3k_version.py                 0.010  OK
+kpt.py                                        0.014  OK
+mpicomm.py                                    0.011  OK
+pathological/numpy_core_multiarray_dot.py     0.010  OK
+eigen/cg2.py                                  0.012  OK
+fd_ops/laplace.py                             0.000  SKIPPED
+linalg/lapack.py                              0.015  OK
+linalg/eigh.py                                0.016  OK
+parallel/submatrix_redist.py                  0.016  OK
+lfc/second_derivative.py                      0.016  OK
+parallel/parallel_eigh.py                     0.011  OK
+lfc/gp2.py                                    0.011  OK
+linalg/blas.py                                0.013  OK
+Gauss.py                                      0.014  OK
+symmetry/check.py                             0.334  OK
+fd_ops/nabla.py                               0.072  OK
+linalg/dot.py                                 0.012  OK
+linalg/mmm.py                                 0.011  OK
+xc/lxc_fxc.py                                 0.013  OK
+xc/pbe_pw91.py                                0.012  OK
+fd_ops/gradient.py                            0.014  OK
+maths/erf.py                                  0.011  OK
+lfc/lf.py                                     0.013  OK
+maths/fsbt.py                                 0.046  OK
+parallel/compare.py                           0.013  OK
+vdw/libvdwxc_functionals.py                   0.000  SKIPPED
+radial/integral4.py                           0.057  OK
+linalg/zher.py                                0.022  OK
+fd_ops/gd.py                                  0.013  OK
+pw/interpol.py                                0.012  OK
+poisson/screened_poisson.py                   0.086  OK
+xc/xc.py                                      0.033  OK
+xc/XC2.py                                     0.033  OK
+radial/yukawa_radial.py                       0.012  OK
+vdw/potential.py                              0.012  OK
+radial/lebedev.py                             0.018  OK
+occupations.py                                0.037  OK
+lfc/derivatives.py                            0.016  OK
+pw/reallfc.py                                 0.181  OK
+parallel/pblas.py                             0.014  OK
+fd_ops/non_periodic.py                        0.013  OK
+spectrum.py                                   0.013  OK
+pw/lfc.py                                     0.095  OK
+gauss_func.py                                 0.179  OK
+multipoletest.py                              0.103  OK
+cluster.py                                    0.063  OK
+poisson/poisson.py                            0.045  OK
+poisson/poisson_asym.py                       0.081  OK
+parallel/arraydict_redist.py                  0.014  OK
+parallel/scalapack.py                         0.012  OK
+gauss_wave.py                                 0.230  OK
+fd_ops/transformations.py                     0.018  OK
+parallel/blacsdist.py                         0.012  OK
+pbc.py                                        0.539  OK
+atoms_too_close.py                            0.554  OK
+ext_potential/harmonic.py                     0.511  OK
+atoms_mismatch.py                             0.012  OK
+setup_basis_spec.py                           0.020  OK
+overlap.py                                    1.597  OK
+pw/direct.py                                  0.012  OK
+vdw/libvdwxc_spin.py                          0.000  SKIPPED
+timing.py                                     0.372  OK
+parallel/ut_parallel.py                       0.014  OK
+lcao/density.py                               0.640  OK
+pw/stresstest.py                              0.605  OK
+pw/fftmixer.py                                0.796  OK
+symmetry/usesymm.py                           0.976  OK
+coulomb.py                                    0.125  OK
+xc/xcatom.py                                  0.630  OK
+force_as_stop.py                              0.565  OK
+vdwradii.py                                   0.588  OK
+ase_features/ase3k.py                         0.913  OK
+pathological/numpy_zdotc_graphite.py          0.675  OK
+utilities/eed.py                         [x096.nifl.fysik.dtu.dk:21768] 1 more process has sent help message help-opal-runtime.txt / opal_init:warn-fork
+[x096.nifl.fysik.dtu.dk:21768] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+     0.980  OK
+lcao/dos.py                                   1.146  OK
+solvation/nan_radius.py                       0.508  OK
+solvation/pbc_pos_repeat.py                   0.354  OK
+lcao/generate_ngto.py                         0.000  SKIPPED
+linalg/gemv.py                                1.213  OK
+fileio/idiotproof_setup.py               [x096.nifl.fysik.dtu.dk:21768] 6 more processes have sent help message help-opal-runtime.txt / opal_init:warn-fork
+     1.921  OK
+radial/ylexpand.py                            1.155  OK
+eigen/keep_htpsit.py                          1.249  OK
+xc/gga_atom.py                                1.027  OK
+generic/hydrogen.py                           1.495  OK
+aeatom.py                                     0.640  OK
+ase_features/plt.py                           1.447  OK
+ds_beta.py                                    1.377  OK
+multipoleH2O.py                               1.597  OK
+spinorbit_Kr.py                               0.000  SKIPPED
+stdout.py                                     1.605  OK
+lcao/largecellforce.py                        1.428  OK
+parallel/scalapack_diag_simple.py             0.013  OK
+fixdensity.py                                 2.281  OK
+pseudopotential/ah.py                         1.773  OK
+lcao/gllb_si.py                               0.825  OK
+fileio/wfs_io.py                              1.728  OK
+lrtddft/2.py                                  1.927  OK
+fileio/file_reference.py                      1.443  OK
+fileio/restart.py                             1.410  OK
+broydenmixer.py                               2.139  OK
+pw/fulldiagk.py                               1.867  OK
+ext_potential/external.py                     1.983  OK
+ext_potential/external_pw.py                  2.989  OK
+lcao/atomic_corrections.py                    1.914  OK
+vdw/libvdwxc_h2.py                            0.000  SKIPPED
+generic/mixer.py                              2.178  OK
+parallel/lcao_projections.py                  2.262  OK
+lcao/h2o.py                                   2.269  OK
+corehole/h2o.py                               2.293  OK
+fileio/wfs_auto.py                            1.886  OK
+pw/fulldiag.py                                2.083  OK
+symmetry/symmetry_ft.py                       1.915  OK
+response/aluminum_EELS_RPA.py                 1.861  OK
+poisson/poisson_extended.py                   1.208  OK
+solvation/vacuum.py                           3.550  OK
+vdw/libvdwxc_mbeef.py                         0.000  SKIPPED
+pseudopotential/sg15_hydrogen.py              2.658  OK
+parallel/augment_grid.py                      5.140  OK
+utilities/ewald.py                            1.495  OK
+symmetry/symmetry.py                          1.881  OK
+xc/revPBE.py                                  2.610  OK
+xc/nonselfconsistentLDA.py                    2.867  OK
+response/aluminum_EELS_ALDA.py                2.685  OK
+spin/spin_contamination.py                    2.556  OK
+inducedfield_lrtddft.py                       3.584  OK
+generic/H_force.py                            1.988  OK
+symmetry/usesymm2.py                          2.447  OK
+mgga/mgga_restart.py                          2.568  OK
+fixocc.py                                     3.165  OK
+spin/spinFe3plus.py                           2.938  OK
+fermisplit.py                                 2.260  OK
+generic/Cl_minus.py                           2.835  OK
+lrtddft/pes.py                                2.320  OK
+generic/proton.py                             2.810  OK
+corehole/h2o_recursion.py                     3.230  OK
+xc/nonselfconsistent.py                       3.190  OK
+spin/spinpol.py                               3.598  OK
+eigen/cg.py                                   3.159  OK
+parallel/kptpar.py                            3.710  OK
+utilities/elf.py                              3.445  OK
+eigen/blocked_rmm_diis.py                     3.033  OK
+pw/slab.py                                    2.638  OK
+generic/si.py                                 4.801  OK
+lcao/bsse.py                                  3.155  OK
+parallel/lcao_hamiltonian.py                  2.863  OK
+xc/degeneracy.py                              3.560  OK
+fileio/refine.py                              2.536  OK
+solvation/pbc.py                              1.262  OK
+generic/asym_box.py                           2.873  OK
+linalg/gemm.py                                0.178  OK
+generic/al_chain.py                           4.056  OK
+fileio/parallel.py                            2.673  OK
+fixmom.py                                     3.656  OK
+exx/unocc.py                                  5.041  OK
+eigen/davidson.py                             5.477  OK
+vdw/H_Hirshfeld.py                            2.684  OK
+parallel/redistribute_grid.py                 3.602  OK
+aedensity.py                                  4.350  OK
+pw/h.py                                       4.838  OK
+lrtddft/apmb.py                               4.878  OK
+pseudopotential/hgh_h2o.py                    4.839  OK
+poisson/poisson_restart.py                    0.000  SKIPPED
+poisson/poisson_extravacuum.py                0.000  SKIPPED
+fdtd/ed_wrapper.py                            4.758  OK
+fdtd/ed_shapes.py                             3.954  OK
+fdtd/ed.py                                    4.747  OK
+fdtd/ed_inducedfield.py                       5.664  OK
+inducedfield_td.py                            4.012  OK
+pw/bulk.py                                    4.363  OK
+gllb/ne.py                                    4.564  OK
+lcao/force.py                                 3.775  OK
+xc/pplda.py                                   4.679  OK
+response/test_unit_sphere_area.py            19.687  OK
+fileio/restart_density.py                     2.193  OK
+rpa/rpa_energy_Ni.py                          5.918  OK
+tddft/be_nltd_ip.py                           5.214  OK
+ibzqpt.py                                     5.610  OK
+noncollinear/o2.py                            0.002  SKIPPED
+generic/si_primitive.py                       2.903  OK
+tddft/ehrenfest_nacl.py                       5.853  OK
+lcao/fd2lcao_restart.py                       6.279  OK
+ext_potential/constant_e_field.py             1.149  OK
+complex.py                                    5.454  OK
+vdw/quick.py                                  3.493  OK
+pathological/lcao_spos_derivative.py          5.709  OK
+lrtddft2/H2O-lcao.py                          2.710  OK
+lrtddft2/Al2.py                               6.034  OK
+lcaotddft/simple.py                           1.998  OK
+lcaotddft/restart.py                          2.912  OK
+lcaotddft/fxc_is_xc.py                        3.551  OK
+lcaotddft/fxc_rpa.py                          1.888  OK
+lcaotddft/fxc_vs_linearize.py                 4.759  OK
+lcaotddft/replay.py                           4.410  OK
+lcaotddft/ksdecomp.py                         5.071  OK
+timelimit.py                                 10.618  OK
+ralda/ralda_energy_N2.py                      5.964  OK
+parallel/lcao_complicated.py                  6.632  OK
+generic/bulk.py                               6.327  OK
+sic/scfsic_h2.py                              6.637  OK
+kpt_refine.py                                 2.850  OK
+lcao/bulk.py                                  5.958  OK
+reuse_wfs.py                                  9.018  OK
+generic/2Al.py                                7.668  OK
+lrtddft/kssingles_Be.py                       4.941  OK
+generic/relax.py                              7.222  OK
+solvation/adm12.py                            2.142  OK
+solvation/lrtddft.py                          2.403  OK
+dscf/dscf_lcao.py                             5.824  OK
+generic/8Si.py                                7.414  OK
+utilities/partitioning.py                     6.462  OK
+xc/lxc_xcatom.py                              7.199  OK
+solvation/sfgcm06.py                          2.305  OK
+solvation/sss09.py                            2.295  OK
+gllb/atomic.py                                5.308  OK
+generic/guc_force.py                          6.454  OK
+ralda/ralda_energy_Ni.py                      9.981  OK
+utilities/simple_stm.py                       9.880  OK
+ofdft/ofdft_pbc.py                            3.758  OK
+gllb/restart_band_structure.py                9.350  OK
+exx/exx.py                                   23.998  OK
+Hubbard_U.py                                  8.505  OK
+rpa/rpa_energy_Si.py                         10.674  OK
+dipole.py                                     9.595  OK
+generic/IP_oxygen.py                          9.701  OK
+rpa/rpa_energy_Na.py                         12.386  OK
+parallel/fd_parallel.py                       9.854  OK
+solvation/poisson.py                          1.794  OK
+solvation/water_water.py                      2.406  OK
+xc/pygga.py                                   8.835  OK
+pseudopotential/atompaw.py                    7.769  OK
+parallel/lcao_parallel.py                    10.188  OK
+xc/atomize.py                                 4.231  OK
+lrtddft/excited_state.py                     26.709  OK
+gllb/ne_disc.py                               9.390  OK
+ofdft/ofdft.py                                4.537  OK
+response/bse_silicon.py                       0.000  SKIPPED
+tpss.py                                       2.744  OK
+tddft/td_na2.py                              11.061  OK
+exx/coarse.py                                19.625  OK
+corehole/si.py                                3.406  OK
+mgga/mgga_sc.py                              24.063  OK
+Hubbard_U_Zn.py                               3.231  OK
+lrtddft/1.py                                 24.050  OK
+gllb/spin.py                                 13.361  OK
+parallel/fd_parallel_kpt.py                  12.105  OK
+generic/Cu.py                                11.945  OK
+vdw/ts09.py                                   2.219  OK
+response/na_plasmon.py                       25.526  OK
+fermilevel.py                                 4.086  OK
+ralda/ralda_energy_H2.py                      7.941  OK
+symmetry/kpoint_mapping.py                   14.000  OK
+response/diamond_absorption.py               11.515  OK
+ralda/ralda_energy_Si.py                     38.671  OK
+jellium.py                                    4.876  OK
+utilities/ldos.py                            16.297  OK
+solvation/swap_atoms.py                       3.606  OK
+xc/revPBE_Li.py                               6.076  OK
+ofdft/ofdft_scale.py                          4.493  OK
+parallel/lcao_parallel_kpt.py                18.302  OK
+corehole/h2o_dks.py                          17.850  OK
+lcaotddft/parallel_options.py                 6.196  OK
+lcaotddft/lcaotddft_vs_lrtddft2.py            7.776  OK
+lcaotddft/lcaotddft_vs_lrtddft2_rpa.py        5.342  OK
+mgga/nsc_MGGA.py                             19.534  OK
+solvation/spinpol.py                          6.990  OK
+gllb/diamond.py                              14.309  OK
+vdw/quick_spin.py                            10.226  OK
+pw/expert_diag.py                             1.620  OK
+pathological/LDA_unstable.py                  5.560  OK
+response/bse_aluminum.py                      4.229  OK
+response/au02_absorption.py                  21.182  OK
+xc/tb09.py                                   19.113  OK
+ext_potential/point_charge.py                 5.719  OK
+ase_features/wannierk.py                     25.869  OK
+ut_tddft.py                                   0.018  OK
+response/pair.py                              0.000  SKIPPED
+rpa/rpa_energy_N2.py                         27.619  OK
+vdw/ar2.py                                   24.831  OK
+solvation/forces_symmetry.py                  8.656  OK
+parallel/diamond_gllb.py                     36.634  OK
+xc/qna_force.py                              20.024  OK
+xc/qna_stress.py                             58.793  OK
+xc/qna_band.py                                8.758  OK
+xc/qna_spinpol.py                            11.195  OK
+beef.py                                      91.871  OK
+response/chi0.py                             43.148  OK
+lrtddft/3.py                                 39.778  OK
+response/chi0_intraband_test.py              14.667  OK
+pathological/nonlocalset.py                  44.329  OK
+response/gw0_hBN.py                          35.325  OK
+xc/lb94.py                                   52.360  OK
+pw/si_stress.py                              48.944  OK
+response/gw_hBN_extrapolate.py               40.560  OK
+exx/AA_enthalpy.py                           69.128  OK
+response/na_plasmons.py                      83.267  OK
+response/na_plasmons_tetrahedron.py          97.640  OK
+lcaotddft/gllbsc.py                          74.123  OK
+solvation/forces.py                          18.640  OK
+response/gw_MoS2_cut.py                      29.583  OK
+response/gwsi.py                             91.551  OK
+response/graphene.py                         41.017  OK
+response/symmetry.py                         30.791  OK
+pw/moleculecg.py                              0.000  SKIPPED
+potential.py                                  0.000  SKIPPED
+lcao/pair_and_coulomb.py                      0.000  SKIPPED
+ase_features/asewannier.py                    0.000  SKIPPED
+pw/davidson_pw.py                             0.000  SKIPPED
+ase_features/neb.py                           0.000  SKIPPED
+utilities/wannier_ethylene.py                 0.000  SKIPPED
+muffintinpot.py                               0.000  SKIPPED
+sic/nscfsic.py                                0.000  SKIPPED
+coreeig.py                                    0.000  SKIPPED
+response/bse_MoS2_cut.py                     51.167  OK
+parallel/scalapack_mpirecv_crash.py           0.000  SKIPPED
+=============================================================================
+Ran 292 tests out of 315 in 2325.0 seconds
+Tests skipped: 23
+All tests passed!
+=============================================================================
+Finished GPAW test
+Job ID: 623075
+Cluster: niflheim
+User/Group: ohni/camdvip
+State: RUNNING
+Nodes: 1
+Cores per node: 24
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 15:32:00 core-walltime
+Job Wall-clock time: 00:38:50
+Memory Utilized: 0.00 MB (estimated maximum)
+Memory Efficiency: 0.00% of 200.00 GB (200.00 GB/node)
+WARNING: Efficiency statistics may be misleading for RUNNING jobs.
