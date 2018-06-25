@@ -4,8 +4,11 @@ GPAW code building instructions and benchmark data
 --------------------------------------------------
 
 The purpose of this page is to document the building of the
-[GPAW](https://wiki.fysik.dtu.dk/gpaw/) code version 1.4.
+[GPAW](https://wiki.fysik.dtu.dk/gpaw/) code release version 1.4.0.
 Subsequently a GPAW test and a GPAW benchmark run is documented.
+
+The prerequisite operating system is CentOS 7.5 (or compatible, for example
+Red Hat RHEL 7 Update 5).
 
 We require using the [EasyBuild](https://github.com/hpcugent/easybuild)
 software build and installation framework that allows you to manage
@@ -225,7 +228,7 @@ Currently Loaded Modules:
 Build GPAW using the foss-2018a toolchain
 -----------------------------------------
 
-The GPAW 1.4 package is not yet part of the EasyBuild official releases.
+The GPAW release version 1.4.0 package is not yet part of the EasyBuild official releases.
 A subdirectory ```easyconfigs``` contains the EasyBuild files required to 
 build GPAW 1.4.
 
@@ -233,3 +236,25 @@ Build the GPAW, GPAW-setups and ASE software modules by:
 ```
 eb GPAW-1.4.0-foss-2018a-Python-3.6.4.eb -r easyconfigs
 ```
+
+Build GPAW using the iomkl-2018a toolchain
+------------------------------------------
+
+To build GPAW 1.4 with the iomkl-2018a toolchain:
+
+XXX
+
+Run GPAW verification tests
+---------------------------
+
+The GPAW verification tests are described in https://wiki.fysik.dtu.dk/gpaw/install.html#run-the-tests.
+
+The verification tests should be executed with 8 single-threaded MPI tasks by:
+
+```
+module load GPAW/1.4.0-foss-2018a-Python-3.6.4
+export OMP_NUM_THREADS=1 
+mpirun -np 8 gpaw-python -m gpaw test 
+```
+
+The file gpaw_test.sh contains a batch job script for running this test.
