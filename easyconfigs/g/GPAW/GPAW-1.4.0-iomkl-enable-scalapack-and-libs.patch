@@ -1,0 +1,36 @@
+
+--- customize.old.py	2018-06-26 11:23:44.828477052 +0200
++++ customize.py	2018-06-26 11:23:34.330614335 +0200
+@@ -32,15 +32,23 @@
+ # mpicompiler = 'mpicc'  # use None if you don't want to build a gpaw-python
+ # mpilinker = 'mpicc'
+ # platform_id = ''
+-scalapack = False
++scalapack = True
+ 
++libraries = ['mpi',
++             'mkl_intel_lp64',
++             'mkl_sequential',
++             'mkl_core',
++             'pthread',
++             'm',
++             'dl',
++             'readline',
++             'xc',]
+ # Use ScaLAPACK:
+ # Warning! At least scalapack 2.0.1 is required!
+ # See https://trac.fysik.dtu.dk/projects/gpaw/ticket/230
+ if scalapack:
+-    libraries += ['scalapack-openmpi',
+-                  'blacsCinit-openmpi',
+-                  'blacs-openmpi']
++    libraries += ['mkl_scalapack_lp64',
++                  'mkl_blacs_openmpi_lp64',]
+     define_macros += [('GPAW_NO_UNDERSCORE_CBLACS', '1')]
+     define_macros += [('GPAW_NO_UNDERSCORE_CSCALAPACK', '1')]
+ 
+@@ -82,4 +90,3 @@
+     compiler = 'mpicc'
+     define_macros += [('PARALLEL', '1')]
+     mpicompiler = None
+-
