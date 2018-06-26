@@ -229,8 +229,8 @@ Build GPAW using the foss-2018a toolchain
 -----------------------------------------
 
 The GPAW release version 1.4.0 package is not yet part of the EasyBuild official releases.
-A subdirectory ```easyconfigs``` contains the EasyBuild files required to 
-build GPAW 1.4.
+A subdirectory [easyconfigs](easyconfigs/) contains the EasyBuild files required to 
+build GPAW 1.4.0.
 
 Build the GPAW, GPAW-setups and ASE software modules by:
 ```
@@ -240,7 +240,7 @@ eb GPAW-1.4.0-foss-2018a-Python-3.6.4.eb -r easyconfigs
 Build GPAW using the iomkl-2018a toolchain
 ------------------------------------------
 
-To build GPAW 1.4 with the iomkl-2018a toolchain:
+To build GPAW 1.4.0 with the iomkl-2018a toolchain:
 
 XXX
 
@@ -249,6 +249,8 @@ Run GPAW verification tests
 
 The GPAW verification tests are described in https://wiki.fysik.dtu.dk/gpaw/install.html#run-the-tests.
 
+The file [gpaw_test.sh](gpaw_test.sh/) contains a batch job script for running this test.
+
 The verification tests should be executed with 8 single-threaded MPI tasks by:
 
 ```
@@ -256,5 +258,3 @@ module load GPAW/1.4.0-foss-2018a-Python-3.6.4
 export OMP_NUM_THREADS=1 
 mpirun -np 8 gpaw-python -m gpaw test 
 ```
-
-The file gpaw_test.sh contains a batch job script for running this test.
