@@ -344,8 +344,10 @@ Recording of timings
 The GPAW code records the elapsed wall-clock time and prints it at the end of
 the output files, for example:
 ```
+$ grep Total: MoS2-benchmark.txt
 Total:                                     18868.814 100.0%
 ```
 
-These Total: timings for Benchmarks 1, 2 and 3 must be collected,
-together with the complete output files.
+These ```Total:``` timings for Benchmarks 1, 2 and 3 must be collected
+and rounded down to the nearest integer.
+The complete output files must also be collected.
