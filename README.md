@@ -317,6 +317,8 @@ Verification of correctness
 In order to verify that the benchmark calculations have produced correct results,
 numerical values in the sample output files should be compared to the reference output files.
 Here the [meld](http://meldmerge.org/) visual diff and merge tool can be very useful.
+The meld RPM package is available from the
+[EPEL](https://fedoraproject.org/wiki/EPEL) repository.
 
 To quickly verify the results, a few numbers from the output files may be extracted as follows:
 
