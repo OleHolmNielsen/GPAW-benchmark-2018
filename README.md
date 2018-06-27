@@ -276,3 +276,46 @@ The following success message must be printed at the end of the output file:
 ```
 All tests passed!
 ```
+
+Run the GPAW benchmarks
+-----------------------
+
+The subdirectory [benchmarks](benchmarks/) contains the Python scripts,
+batch job shell scripts, and any further input files.
+The shell scripts are configured for the [Slurm](https://slurm.schedmd.com/overview.html)
+resource manager and may be adopted for other systems easily, or even run interactively.
+
+The batch jobs script files in [benchmarks](benchmarks/) are:
+```
+Benchmark 1: MoS2-benchmark.sh
+Benchmark 2: GW-benchmark.sh
+Benchmark 3: Ru2Cl6-benchmark.sh
+```
+
+Each of the files contains an EasyBuild toolchain selection which must be chosen
+appropriately (default is foss-2018a):
+
+```
+export TOOLCHAIN=foss-2018a
+export TOOLCHAIN=iomkl-2018a
+```
+
+The script must then be executed interactively or submitted to a batch queue.
+Scripts must be run in the [benchmarks](benchmarks/) directory because the
+Python and json input files are required.
+
+After completing the benchmarks, results have been written to the output files :
+```
+Benchmark 1: MoS2-benchmark.txt
+Benchmark 2: g0w0.txt
+Benchmark 3: Ru2Cl6-benchmark.txt
+```
+
+The GPAW code records the elapsed wall-clock time and prints it at the end of
+the output files, for example:
+```
+Total:                                     18868.814 100.0%
+```
+
+These Total: timings for Benchmarks 1, 2 and 3 must be collected,
+together with the complete output files.
