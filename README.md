@@ -238,7 +238,7 @@ The GPAW release version 1.4.0 package is not yet part of the EasyBuild official
 A subdirectory [easyconfigs](easyconfigs/) contains the EasyBuild files required to 
 build GPAW 1.4.0.
 
-Build the GPAW, GPAW-setups and ASE software modules by:
+Build the GPAW, GPAW-setups and ASE software modules with foss-2018a by:
 ```
 eb GPAW-1.4.0-foss-2018a-Python-3.6.4.eb -r easyconfigs
 ```
@@ -246,9 +246,14 @@ eb GPAW-1.4.0-foss-2018a-Python-3.6.4.eb -r easyconfigs
 Build GPAW using the iomkl-2018a toolchain
 ------------------------------------------
 
-To build GPAW 1.4.0 with the iomkl-2018a toolchain:
+The GPAW release version 1.4.0 package is not yet part of the EasyBuild official releases.
+A subdirectory [easyconfigs](easyconfigs/) contains the EasyBuild files required to 
+build GPAW 1.4.0.
 
-XXX
+Build the GPAW, GPAW-setups and ASE software modules with iomkl-2018a by:
+```
+eb GPAW-1.4.0-iomkl-2018a-Python-3.6.4.eb -r easyconfigs
+```
 
 Run GPAW verification tests
 ---------------------------
