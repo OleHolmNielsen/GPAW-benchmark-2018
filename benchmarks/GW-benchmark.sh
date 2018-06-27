@@ -6,7 +6,7 @@
 #SBATCH --time=2:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=24
-#SBATCH --ntasks-per-node=24
+#SBATCH --cpus-per-task=1
 #SBATCH --mem=250G
 
 # This is a Slurm batch job script for the GW-benchmark.py benchmark.
@@ -16,8 +16,11 @@ echo Hostname: `hostname`
 echo CPU type:
 lscpu
 
+# Select EasyBuild toolchain
+TOOLCHAIN=iomkl-2018a
+
 module purge
-module load GPAW/1.4.0-foss-2018a-Python-3.6.4
+module load GPAW/1.4.0-$TOOLCHAIN-Python-3.6.4
 module list
 
 mpiexec gpaw-python GW-benchmark.py
