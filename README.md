@@ -277,6 +277,8 @@ The following success message must be printed at the end of the output file:
 All tests passed!
 ```
 
+An example output file is [gpaw_test.txt](gpaw_test.txt/).
+
 Run the GPAW benchmarks
 -----------------------
 
