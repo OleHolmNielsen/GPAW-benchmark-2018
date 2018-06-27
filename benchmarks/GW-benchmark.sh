@@ -16,8 +16,9 @@ echo Hostname: `hostname`
 echo CPU type:
 lscpu
 
-# Select EasyBuild toolchain
-TOOLCHAIN=iomkl-2018a
+# Select EasyBuild toolchain:
+export TOOLCHAIN=foss-2018a
+# export TOOLCHAIN=iomkl-2018a
 
 module purge
 module load GPAW/1.4.0-$TOOLCHAIN-Python-3.6.4
