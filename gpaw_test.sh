@@ -1,10 +1,10 @@
 #!/bin/bash
 #SBATCH --job-name=gpaw-test
 #SBATCH --partition=xeon24
-#SBATCH --mem=200G
+#SBATCH --mem=30G
 #SBATCH --output=%x-%j.out
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=24
+#SBATCH --ntasks-per-node=8
 #SBATCH --cpus-per-task=1
 #SBATCH --time=1:00:00
 #SBATCH --mail-type=ALL
