@@ -311,6 +311,36 @@ Benchmark 2: g0w0.txt
 Benchmark 3: Ru2Cl6-benchmark.txt
 ```
 
+Verification of correctness
+---------------------------
+
+In order to verify that the benchmark calculations have produced correct results,
+numerical values in the sample output files should be compared to the reference output files.
+
+To quickly verify the results, a few numbers from the output files may be extracted as follows:
+
+Benchmark 1:
+```
+$ grep Free MoS2-benchmark.txt
+Free energy:   -1290.753464
+```
+
+Benchmark 2:
+```
+TO BE WRITTEN
+```
+
+Benchmark 3:
+```
+$ grep Free Ru2Cl6.txt
+Free energy:    -29.245320
+```
+
+It is expected that the mentioned numbers should vary only in the last digit by a small amount.
+
+Recording of timings
+--------------------
+
 The GPAW code records the elapsed wall-clock time and prints it at the end of
 the output files, for example:
 ```
