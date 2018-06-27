@@ -7,6 +7,9 @@ The purpose of this page is to document the building of the
 [GPAW](https://wiki.fysik.dtu.dk/gpaw/) code release version 1.4.0.
 Subsequently a GPAW test and a GPAW benchmark run is documented.
 
+The benchmarks are designed to reflect our HPC software environment,
+and to run some representative physics problems using the GPAW code.
+
 The prerequisite operating system is CentOS 7.5 (or compatible, for example
 Red Hat RHEL 7 Update 5).
 
@@ -180,12 +183,15 @@ mv parallel_studio_xe_2018_update1_composer_edition_for_fortran.tgz $HOME/module
 mv l_mkl_2018.1.163.tgz $HOME/modules/sources/i/imkl/
 ```
 
-Due to a bug in the Intel compilers 2018.1 you need to set a very large or unlimited
-stack size before building Python 3.x with Intel compilers, for example:
+Due to a bug in the Intel compilers 2018.1 a very large or unlimited
+stack size is required before building Python 3.x with Intel compilers.
+The number of user processes must also be larger than the default.
+Example settings are:
 
 ```
 ulimit -s 40000000
 ulimit -s unlimited
+ulimit -u 500
 ```
 See details in https://software.intel.com/en-us/forums/intel-c-compiler/topic/759078.
 The bug seems to have been resolved in the Intel 2018.3 compiler version.
@@ -254,7 +260,14 @@ The file [gpaw_test.sh](gpaw_test.sh/) contains a batch job script for running t
 The verification tests should be executed with 8 single-threaded MPI tasks by:
 
 ```
-module load GPAW/1.4.0-foss-2018a-Python-3.6.4
+foss:  module load GPAW/1.4.0-foss-2018a-Python-3.6.4
+iomkl: module load GPAW/1.4.0-iomkl-2018a-Python-3.6.4
 export OMP_NUM_THREADS=1 
 mpirun -np 8 gpaw-python -m gpaw test 
+```
+
+Warning messages and “SKIPPED” tests in the test suite output are accepted, but FAILED tests are not acceptable and must be corrected.
+The following success message must be printed at the end of the output file:
+```
+All tests passed!
 ```
