@@ -1,6 +1,8 @@
 from gpaw import GPAW, PW, FermiDirac
 from gpaw.response.g0w0 import G0W0
 from ase.build import mx2
+from ase.parallel import world
+from pathlib import Path
 
 
 def get_bandrange(calc):
@@ -14,6 +16,12 @@ def get_bandrange(calc):
 def write_gpw_file():
     """write gs dft calculation
     """
+    # start by cleaning up a bit
+    if world.rank == 0:
+        for name in Path().glob('*.npy'):
+            Path(name).unlink()
+
+    world.barrier()
     params = dict(
         mode=PW(400),
         xc='PBE',
@@ -50,7 +58,7 @@ def gw_calc(kptsize=12, ecut=200.0, gwg_and_gw=False, gw_only=True):
                 ecut=ecut,
                 ecut_extrapolation=True,
                 truncation='2D',
-                nblocksmax=True,
+                nblocks=6,
                 q0_correction=True,
                 filename='g0w0',
                 restartfile='g0w0.tmp',
