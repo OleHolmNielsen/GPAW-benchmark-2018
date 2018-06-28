@@ -28,3 +28,7 @@ module list
 export OMP_NUM_THREADS=1
 
 mpiexec gpaw-python MoS2-benchmark.py
+
+echo Extract numbers for correctness and timing
+grep Free MoS2-benchmark.txt
+grep Total: MoS2-benchmark.txt

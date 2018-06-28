@@ -27,3 +27,6 @@ module list
 # Run 1 thread per task
 export OMP_NUM_THREADS=1 
 mpiexec gpaw-python GW-benchmark.py
+
+echo Extract numbers for correctness and timing
+grep Total: g0w0.txt
