@@ -58,7 +58,7 @@ def gw_calc(kptsize=12, ecut=200.0, gwg_and_gw=False, gw_only=True):
                 ecut=ecut,
                 ecut_extrapolation=True,
                 truncation='2D',
-                nblocks=6,
+                nblocks=8,
                 q0_correction=True,
                 filename='g0w0',
                 restartfile='g0w0.tmp',
