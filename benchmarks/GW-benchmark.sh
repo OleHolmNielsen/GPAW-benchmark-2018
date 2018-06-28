@@ -24,4 +24,6 @@ module purge
 module load GPAW/1.4.0-$TOOLCHAIN-Python-3.6.4
 module list
 
+# Run 1 thread per task
+export OMP_NUM_THREADS=1 
 mpiexec gpaw-python GW-benchmark.py
