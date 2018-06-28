@@ -20,6 +20,8 @@ def write_gpw_file():
     if world.rank == 0:
         for name in Path().glob('*.npy'):
             Path(name).unlink()
+        for name in Path().glob('*.tmp.*.pckl'):
+            Path(name).unlink()
 
     world.barrier()
     params = dict(
@@ -36,6 +38,11 @@ def write_gpw_file():
     slab.get_forces()
     slab.get_stress()
     slab.calc.write('gs.gpw')
+
+
+def get_nblocks(size):
+    s2n = {24: 12, 36: 12, 40: 10, 48: 12, 64: 8}
+    return s2n.get(size, size // 2)
 
 
 def gw_calc(kptsize=12, ecut=200.0, gwg_and_gw=False, gw_only=True):
@@ -58,7 +65,7 @@ def gw_calc(kptsize=12, ecut=200.0, gwg_and_gw=False, gw_only=True):
                 ecut=ecut,
                 ecut_extrapolation=True,
                 truncation='2D',
-                nblocks=8,
+                nblocks=get_nblocks(world.size),
                 q0_correction=True,
                 filename='g0w0',
                 restartfile='g0w0.tmp',
