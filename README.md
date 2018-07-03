@@ -184,8 +184,8 @@ mv l_mkl_2018.1.163.tgz $HOME/modules/sources/i/imkl/
 ```
 
 Due to a bug in the Intel compilers 2018.1 a very large or unlimited
-stack size is required before building Python 3.x with Intel compilers.
-The number of user processes must also be larger than the default.
+stack size (-s) is required before building Python 3.x with Intel compilers.
+The number of user processes (-u) must also be larger than the default.
 Example settings are:
 
 ```
@@ -290,8 +290,7 @@ resource manager and may be adopted for other systems easily, or even run intera
 The batch jobs script files in [benchmarks](benchmarks/) are:
 ```
 Benchmark 1: MoS2-benchmark.sh
-Benchmark 2: GW-benchmark.sh
-Benchmark 3: Ru2Cl6-benchmark.sh
+Benchmark 2: Ru2Cl6-benchmark.sh
 ```
 
 Each of the files contains an EasyBuild toolchain selection which must be chosen
@@ -309,8 +308,7 @@ Python and json input files are required.
 After completing the benchmarks, results have been written to the output files :
 ```
 Benchmark 1: MoS2-benchmark.txt
-Benchmark 2: g0w0.txt
-Benchmark 3: Ru2Cl6-benchmark.txt
+Benchmark 2: Ru2Cl6-benchmark.txt
 ```
 
 Verification of correctness
@@ -332,11 +330,6 @@ Free energy:   -1290.753464
 
 Benchmark 2:
 ```
-TO BE WRITTEN
-```
-
-Benchmark 3:
-```
 $ grep Free Ru2Cl6.txt
 Free energy:    -29.245320
 ```
@@ -353,6 +346,6 @@ $ grep Total: MoS2-benchmark.txt
 Total:                                     18868.814 100.0%
 ```
 
-These ```Total:``` timings for Benchmarks 1, 2 and 3 must be collected
+These ```Total:``` timings for Benchmarks 1 and 2 must be collected
 and rounded down to the nearest integer.
 The complete output files must also be collected.
