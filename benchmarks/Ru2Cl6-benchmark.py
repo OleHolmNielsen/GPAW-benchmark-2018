@@ -35,7 +35,7 @@ def get_mm(atoms, state):
 
 def pbeU(tag=None):
     U = 4.0
-    ecut = 800
+    ecut = 1200
     kdens = 12
     width = 0.01
     atoms = read('Ru2Cl6-input.json')
