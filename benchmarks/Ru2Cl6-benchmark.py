@@ -56,7 +56,6 @@ def pbeU(tag=None):
                 xc=xc,
                 parallel={'augment_grids': True},
                 occupations=FermiDirac(width=width),
-                nbands='140%',
                 convergence={'bands': -4})
     atoms.calc = calc
     atoms.get_potential_energy()
