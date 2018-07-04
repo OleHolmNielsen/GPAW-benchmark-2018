@@ -44,9 +44,9 @@ def pbeU(tag=None):
     xc = 'PBE'
     setups = get_U_setups(atoms, U)
     if tag is None:
-        xcstr = 'Ru2Cl6'
+        xcstr = 'Ru2Cl6-benchmark'
     else:
-        xcstr = 'Ru2Cl6' + tag
+        xcstr = 'Ru2Cl6-benchmark' + tag
 
     calc = GPAW(txt='{}.txt'.format(xcstr),
                 mode=PW(ecut),
