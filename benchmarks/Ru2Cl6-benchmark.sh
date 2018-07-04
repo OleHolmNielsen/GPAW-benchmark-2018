@@ -28,6 +28,7 @@ module list
 export OMP_NUM_THREADS=1
 
 mpiexec gpaw-python Ru2Cl6-benchmark.py
+rm -f Ru2Cl6-benchmark.gpw
 
 echo Extract numbers for correctness and timing
 grep Free Ru2Cl6-benchmark.txt
