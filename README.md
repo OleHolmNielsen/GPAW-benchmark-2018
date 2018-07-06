@@ -344,7 +344,7 @@ the output files, for example:
 ```
 $ grep Total: MoS2-benchmark.txt
 Total:                                     20191.192 100.0%
-grep Total: Ru2Cl6-benchmark.txt 
+$ grep Total: Ru2Cl6-benchmark.txt 
 Total:                                      2985.377 100.0%
 ```
 
