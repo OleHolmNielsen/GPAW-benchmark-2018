@@ -330,7 +330,7 @@ Free energy:   -1286.392107
 
 Benchmark 2:
 ```
-$ grep Free Ru2Cl6.txt
+$ grep Free Ru2Cl6-benchmark.txt
 Free energy:    -29.267023
 ```
 
